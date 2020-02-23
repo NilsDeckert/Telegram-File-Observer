@@ -81,3 +81,6 @@ See **config/setting.py** to adapt the bot to your wishes. You should add your o
 # admin user id
 admin_id = "000000000"
 ```
+## Authors:
+
+* **Nils Deckert** - *Initial work* - [NilsDeckert](https://github.com/NilsDeckert)
