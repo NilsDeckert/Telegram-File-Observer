@@ -262,7 +262,9 @@ def PDF(update, context):
 
 # Sends the bot's link
 def share(update, context):
+    u_id = str(update.message.from_user.id)
     bot_username = str(bot.get_me().username)
+    logging.info("{}: /link".format(u_id))
     share_link = "https://t.me/" + bot_username
     context.bot.send_message(chat_id=update.effective_chat.id,text=share_link)
 

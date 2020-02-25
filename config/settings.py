@@ -32,7 +32,8 @@ help_message = "*You can use the following commands:*\n"
 + "/PDF: Sends you the latest version of the file\n"
 + "/unsubscribe: Unsubscribes from the file newsletter\n"
 + "/subscribe: Subscribes to the file newsletter  (Activated by default)\n"
-+ "/grade: Set the string you want to know if it is in the file"
++ "/grade: Set the string you want to know if it is in the file\n"
++ "/link: Sends you the link to this bot, so you can share it"
 
 # Interval in which the file will be checked for changes (*in seconds*)
 update_interval = 900
