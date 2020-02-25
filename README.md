@@ -81,6 +81,16 @@ See **config/setting.py** to adapt the bot to your wishes. You should add your o
 # admin user id
 admin_id = "000000000"
 ```
+
+Text ['BotFather'](https://core.telegram.org/bots#6-botfather) and use `/setcommands` to add suggestions for your bot's commands. For the standard command description, you would send the following message:
+```
+pdf - Sends you the latest version of the file
+unsubscribe - Unsubscribes from the file newsletter
+subscribe - Subscribes to the file newsletter
+grade - Set the string you want to know if it is in the file
+link - Sends you the link to this bot, so you can share it
+help - Sends you a list off all existing commands
+```
 ## Authors:
 
 * **Nils Deckert** - *Initial work* - [NilsDeckert](https://github.com/NilsDeckert)
