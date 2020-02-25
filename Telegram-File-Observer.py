@@ -40,7 +40,7 @@ file = settings.file
 # checks if file was updated, if so sends it every user in the database who subscribed to the newsletter
 def check():
     n = 0
-    mydb = pw.login
+    mydb = mysql_pw.login
     mycursor = mydb.cursor()
     if cmp.check_v():
         v_prm = 'v/v.pdf'
@@ -260,6 +260,12 @@ def PDF(update, context):
     logging.info("{}: /PDF".format(u_id))
     bot.send_document(chat_id=u_id, document=file)
 
+# Sends the bot's link
+def share(update, context):
+    bot_username = str(bot.get_me().username)
+    share_link = "https://t.me/" + bot_username
+    context.bot.send_message(chat_id=update.effective_chat.id,text=share_link)
+
 # Resends user's message back to them if it's no command
 def echo(update, context):
     u_id = str(update.message.from_user.id)
@@ -280,6 +286,7 @@ unsub_handler = CommandHandler('unsubscribe', unsubscribe)
 echo_handler = MessageHandler(Filters.text, echo)
 help_handler = CommandHandler('help', help)
 grade_handler = CommandHandler('grade', grade)
+share_handler = CommandHandler('link', share)
 
 #dispatcher
 dispatcher.add_handler(start_handler)
@@ -289,6 +296,7 @@ dispatcher.add_handler(sub_handler)
 dispatcher.add_handler(unsub_handler)
 dispatcher.add_handler(help_handler)
 dispatcher.add_handler(grade_handler)
+dispatcher.add_handler(share_handler)
 
 print("\n" + "--- Bot up and running ---")
 bot_username = str(bot.get_me().username)
