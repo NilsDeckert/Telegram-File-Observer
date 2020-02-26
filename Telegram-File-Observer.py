@@ -148,7 +148,7 @@ def start(update, context):
             print("---")
             mycursor.close()
             try:
-                mydb = pw.login
+                mydb = mysql_pw.login
                 mycursor = mydb.cursor()
                 sql1 = "INSERT INTO users (user_id, username, first_name, last_name, lang, grade, sub) VALUES (%s, %s, %s, %s, %s, %s, 1)"
                 val1 = (u_id, u_username, u_first_name, u_last_name, u_lang, '')
@@ -182,7 +182,7 @@ def ErrorNot(source):
 # Lets users subscribe to the newsletter
 def subscribe(update,context):
     try:
-        mydb = pw.login
+        mydb = mysql_pw.login
         mycursor = mydb.cursor()
         u_id = str(update.message.from_user.id)
         #sql = "UPDATE users SET sub = 1 WHERE user_id = '{}'".format(u_id)
@@ -198,7 +198,7 @@ def subscribe(update,context):
 # Lets users unsubscribe from newsletter
 def unsubscribe(update,context):
         try:
-            mydb = pw.login
+            mydb = mysql_pw.login
             mycursor = mydb.cursor()
             u_id = str(update.message.from_user.id)
             #sql = "UPDATE users SET sub = 1 WHERE user_id = '{}'".format(u_id)
@@ -215,7 +215,7 @@ def unsubscribe(update,context):
 def grade(update,context):
     u_id = str(update.message.from_user.id)
     args = context.args
-    mydb = pw.login
+    mydb = mysql_pw.login
     mycursor = mydb.cursor()
     if len(args) == 0:
         mycursor.execute("SELECT * FROM users WHERE user_id='{}'".format(u_id))
