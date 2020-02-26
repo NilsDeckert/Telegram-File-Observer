@@ -78,7 +78,7 @@ def check():
 
 # Creates database entry to log every update of the file
 def updates_time_date():
-    mydb = pw.login
+    mydb = mysql_pw.login
     mycursor = mydb.cursor()
     current_date = datetime.datetime.now().strftime('%Y-%m-%d')
     current_time = datetime.datetime.now().strftime('%H:%M:%S')
@@ -92,7 +92,7 @@ def updates_time_date():
         mycursor.execute(sql, val)
         mydb.commit()
         mycursor.close()
-        mydb = pw.login
+        mydb = mysql_pw.login
         mycursor = mydb.cursor()
         mycursor.execute("SELECT * FROM updates_date WHERE date='{}'".format(current_date))
         records = mycursor.fetchall()
@@ -117,7 +117,7 @@ def updates_time_date():
 
 # Handles the start of a new conversation
 def start(update, context):
-    mydb = pw.login
+    mydb = mysql_pw.login
     mycursor = mydb.cursor()
 
     # logs user info
